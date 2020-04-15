@@ -120,10 +120,9 @@ align-self: bottom;}
 
       <label for="Symptom1" align="left">Symptom1</label>
       <input type="text" list="symp" multiple="multiple" class="form-control" name="Symptom1">
-      <datalist id="symp">
-          {% for symp in symptoms %}
-          <option value= "{{symp}}">{{symp}}</option>
-        {% endfor %}
+     <datalist id="symp">
+          <option value = "itching">
+		  <option value = "skin_rash">
       </datalist>
 
       <label for="Symptom2" align="left">Symptom2</label>
