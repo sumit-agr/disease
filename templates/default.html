@@ -120,17 +120,11 @@ align-self: bottom;}
 
       <label for="Symptom1" align="left">Symptom1</label>
       <input type="text" list="symp" multiple="multiple" class="form-control" name="Symptom1">
-     <datalist id="symp">
-          
-	     <label>
-  or select from the list:
-  <select name=animal>
-   <option value="">
-   <option>itching
-   <option>skin_rash
-  </select>
- </label>
-      </datalist>
+     <select id="symp">
+	     {% for symp in symptoms %}
+          <option value= "{{symp}}">{{symp}}</option>
+        {% endfor %}
+      </select>
 
       <label for="Symptom2" align="left">Symptom2</label>
       <input type="text" list="symp" multiple="multiple" class="form-control" name="Symptom2">
