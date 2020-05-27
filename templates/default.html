@@ -4,16 +4,16 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
     integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
 
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
 	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <style type="text/css">
@@ -21,11 +21,11 @@
     height: 100%;
 	width :100%;
 }
-.bg { 
-   
+.bg {
+
     background-image: url("https://www.thermofisher.com/blog/proteomics/wp-content/uploads/sites/2/2017/01/shutterstock_307043336.jpg");
     height: 100%;
-	width :100%; 
+	width :100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -36,7 +36,7 @@
   font-family: sans-serif;
   font-size: 30px;
   border-bottom: double;
-  
+
 }
 
 .nav.navbar-nav {
@@ -71,7 +71,7 @@
 .tabcontent {
     color: black;
     display: none;
-    padding: 60px;
+    padding: 100px;
     width: 100%;
     position: relative;
     height: 50%;
@@ -85,14 +85,14 @@ text-decoration-color: white;
 color: white;
 align-self: bottom;}
 
-      
+
     </style>
 
   </head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <body>
     {% block body%}
-    <div class="bg"> 
+    <div class="bg">
       <br>
       <div>
      </div>
@@ -108,33 +108,39 @@ align-self: bottom;}
     <div>
         <button class="tablink" onclick="openTab('Symptom', this, '#e3f2fd')" id="defaultOpen" style="width: 100%; "><b>Symptom checker</b></button>
 
-    
+
 </div>
 
 <div id="Symptom" class="tabcontent">
-  <form name="SymptomForm" id="SymForm" method="POST" action=/disease_predict>
-   
+      <div><center><b>* Select atleast 3 option for better result</b></center> </div>
+  <form name="SymptomForm" id="SymForm" method="POST" action=/disease_predict required>
+
     <div class="form-group">
 
-      <label for="Symptom1" align="left">Symptom1</label>
+      <label for="Symptom1" align="left" required>Symptom1</label>
      <!-- <input type="text" list="symp" multiple="multiple" class="form-control" name="Symptom1"> -->
-     <select id="symp" name = "Symptom1" required>
+	 <!--<datalist id = "symp">-->
+
+     <select id="symp" name = "Symptom1"required>
+
 	     {% for symp in symptoms %}
           <option value= "{{symp}}">{{symp}}</option>
         {% endfor %}
       </select>
 
-      <label for="Symptom2" align="left">Symptom2</label>
+      <label for="Symptom2" align="left" required>Symptom2</label>
        <!-- <input type="text" list="symp" multiple="multiple" class="form-control" name="Symptom1"> -->
-     <select id="symp" name = "Symptom2" required>
+     <select id="symp" name = "Symptom2" required >
+
 	     {% for symp in symptoms %}
           <option value= "{{symp}}">{{symp}}</option>
         {% endfor %}
       </select>
 
-      <label for="Symptom3" align="left">Symptom3</label>
+      <label for="Symptom3" align="left" required>Symptom3</label>
        <!-- <input type="text" list="symp" multiple="multiple" class="form-control" name="Symptom1"> -->
-     <select id="symp" name = "Symptom3" required>
+     <select required id="symp" name = "Symptom3" required >
+
 	     {% for symp in symptoms %}
           <option value= "{{symp}}">{{symp}}</option>
         {% endfor %}
@@ -142,7 +148,9 @@ align-self: bottom;}
 
       <label for="Symptom4" align="left">Symptom4</label>
        <!-- <input type="text" list="symp" multiple="multiple" class="form-control" name="Symptom1"> -->
-     <select id="symp" name = "Symptom4" required>
+
+     <select id="symp" name = "Symptom4">
+
 	     {% for symp in symptoms %}
           <option value= "{{symp}}">{{symp}}</option>
         {% endfor %}
@@ -150,14 +158,15 @@ align-self: bottom;}
 
       <label for="Symptom5" align="left">Symptom5</label>
        <!-- <input type="text" list="symp" multiple="multiple" class="form-control" name="Symptom1"> -->
-     <select id="symp" name = "Symptom5" required>
+
+     <select id="symp" name = "Symptom5">
 	     {% for symp in symptoms %}
           <option value= "{{symp}}">{{symp}}</option>
         {% endfor %}
       </select>
 
     </div>
-    
+
     <button type="submit" class="btn btn-primary" style="padding: 10px;" name=form>Check</button>
 </form>
 </div>
@@ -170,7 +179,7 @@ align-self: bottom;}
 </div>
 <script>
 
-  
+
 function openTab(tabName,elmnt,color) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
